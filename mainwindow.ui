@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Solucionador de autoestereogramas</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -45,7 +45,7 @@
     <item row="3" column="1">
      <widget class="QPushButton" name="btn_stop">
       <property name="text">
-       <string>Parar</string>
+       <string>Detener</string>
       </property>
      </widget>
     </item>

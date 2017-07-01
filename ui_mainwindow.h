@@ -85,11 +85,11 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Solucionador de autoestereogramas", Q_NULLPTR));
         label_image_autostereogram->setText(QApplication::translate("MainWindow", "Autostereogram", Q_NULLPTR));
         label_image_map_depth->setText(QApplication::translate("MainWindow", "Map Depth", Q_NULLPTR));
         btn_select_autostereogram->setText(QApplication::translate("MainWindow", "Seleccionar autoestereograma", Q_NULLPTR));
-        btn_stop->setText(QApplication::translate("MainWindow", "Parar", Q_NULLPTR));
+        btn_stop->setText(QApplication::translate("MainWindow", "Detener", Q_NULLPTR));
         btn_start->setText(QApplication::translate("MainWindow", "Iniciar", Q_NULLPTR));
     } // retranslateUi
 

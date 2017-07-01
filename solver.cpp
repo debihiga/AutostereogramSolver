@@ -73,6 +73,8 @@ void Solver::solve() {
         // Translation to where mean was min.
         Mat translated;
         Mat transformation_matrix = (Mat_<double>(2, 3) << 1, 0, tx_min, 0, 1, 0);
+        //Mat transformation_matrix = (Mat_<double>(2, 3) << 1, 0, tx_i, 0, 1, 0);
+        //Mat transformation_matrix = (Mat_<double>(2, 3) << 1, 0, tx_f, 0, 1, 0);
         warpAffine(autostereogram, translated, transformation_matrix, autostereogram.size());
 
         // Absolute difference between images.
@@ -81,8 +83,14 @@ void Solver::solve() {
 
         Mat gray;
         cvtColor(difference, gray, CV_BGR2GRAY);
-        gray(Rect(0,0,tx_min,autostereogram.size().height))=0;    // Don't show back image.
+        //gray(Rect(0,0,tx_min,autostereogram.size().height))=0;    // Don't show back image.
         emit show_image_processed(QPixmap::fromImage(matGray2QImage(resize_image(&gray))));
+
+        /*
+        Mat pattern = autostereogram;
+        pattern(Rect(tx_min,0,autostereogram.size().width-tx_min,autostereogram.size().height)) = 0;
+        emit show_image_autostereogram(QPixmap::fromImage(matRGB2QImage(resize_image(&pattern))));
+        */
     }
 
     qDebug()<<"Solver Thread "<<this->QObject::thread();

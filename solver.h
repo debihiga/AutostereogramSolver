@@ -28,6 +28,7 @@ public slots:
 
 signals:
 
+    void show_image_autostereogram(const QPixmap &);
     void show_image_processed(const QPixmap &);
     void enable_btn_stop(bool);
     void enable_btn_start(bool);

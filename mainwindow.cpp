@@ -36,6 +36,7 @@ void MainWindow::on_btn_start_clicked() {
     connect(solver, SIGNAL(finished()), solver, SLOT(deleteLater()));
     // GUI.
     // https://fabienpn.wordpress.com/2013/05/01/qt-thread-simple-and-stable-with-sources/
+    connect(solver, SIGNAL(show_image_autostereogram(const QPixmap &)), ui->label_image_autostereogram, SLOT(setPixmap(const QPixmap &)));
     connect(solver, SIGNAL(show_image_processed(const QPixmap &)), ui->label_image_map_depth, SLOT(setPixmap(const QPixmap &)));
     // https://stackoverflow.com/questions/5153157/passing-an-argument-to-a-slot
     // https://artandlogic.com/2013/09/qt-5-and-c11-lambdas-are-your-friend/
