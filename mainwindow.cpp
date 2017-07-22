@@ -37,7 +37,9 @@ void MainWindow::on_btn_start_clicked() {
     // GUI.
     // https://fabienpn.wordpress.com/2013/05/01/qt-thread-simple-and-stable-with-sources/
     connect(solver, SIGNAL(show_image_autostereogram(const QPixmap &)), ui->label_image_autostereogram, SLOT(setPixmap(const QPixmap &)));
-    connect(solver, SIGNAL(show_image_processed(const QPixmap &)), ui->label_image_map_depth, SLOT(setPixmap(const QPixmap &)));
+    connect(solver, SIGNAL(show_image_left(const QPixmap &)), ui->label_image_left, SLOT(setPixmap(const QPixmap &)));
+    connect(solver, SIGNAL(show_image_right(const QPixmap &)), ui->label_image_right, SLOT(setPixmap(const QPixmap &)));
+    connect(solver, SIGNAL(show_image_map_depth(const QPixmap &)), ui->label_image_map_depth, SLOT(setPixmap(const QPixmap &)));
     // https://stackoverflow.com/questions/5153157/passing-an-argument-to-a-slot
     // https://artandlogic.com/2013/09/qt-5-and-c11-lambdas-are-your-friend/
     connect(solver, &Solver::workRequested, this, [=](){ui->btn_stop->setEnabled(true);});
@@ -61,6 +63,8 @@ void MainWindow::set_new_autostereogram(Mat* image) {
     Mat resized_image = resize_image(image);
     ui->label_image_autostereogram->setPixmap(QPixmap::fromImage(matRGB2QImage(resized_image)));
     Mat black_image = Mat::zeros(resized_image.size(), CV_8U);
+    ui->label_image_left->setPixmap(QPixmap::fromImage(matGray2QImage(black_image)));
+    ui->label_image_right->setPixmap(QPixmap::fromImage(matGray2QImage(black_image)));
     ui->label_image_map_depth->setPixmap(QPixmap::fromImage(matGray2QImage(black_image)));
 }
 

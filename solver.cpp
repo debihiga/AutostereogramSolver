@@ -59,8 +59,8 @@ void Solver::solve() {
                 tx_min = tx;
             }
             //gray(Rect(0,0,tx,autostereogram.size().height))=0;    // Don't show back image.
-            emit show_image_processed(QPixmap::fromImage(matGray2QImage(resize_image(&gray))));
-            QThread::msleep(20);
+            emit show_image_left(QPixmap::fromImage(matGray2QImage(resize_image(&gray))));
+            //QThread::msleep(20);
 
             tx++;
         } else {
@@ -70,6 +70,7 @@ void Solver::solve() {
     }
 
     if(!abort) {
+
         // Translation to where mean was min.
         Mat translated;
         Mat transformation_matrix = (Mat_<double>(2, 3) << 1, 0, tx_min, 0, 1, 0);
@@ -84,13 +85,14 @@ void Solver::solve() {
         Mat gray;
         cvtColor(difference, gray, CV_BGR2GRAY);
         //gray(Rect(0,0,tx_min,autostereogram.size().height))=0;    // Don't show back image.
-        emit show_image_processed(QPixmap::fromImage(matGray2QImage(resize_image(&gray))));
 
-        /*
-        Mat pattern = autostereogram;
-        pattern(Rect(tx_min,0,autostereogram.size().width-tx_min,autostereogram.size().height)) = 0;
-        emit show_image_autostereogram(QPixmap::fromImage(matRGB2QImage(resize_image(&pattern))));
-        */
+        // Shift to left.
+        transformation_matrix = (Mat_<double>(2, 3) << 1, 0, -tx_min, 0, 1, 0);
+        warpAffine(gray, translated, transformation_matrix, autostereogram.size());
+        Mat image_left = get_image_left(autostereogram, translated);
+        emit show_image_left(QPixmap::fromImage(matRGB2QImage(resize_image(&image_left))));
+
+        qDebug()<<"Max disparity "<< tx_i+tx_min;
     }
 
     qDebug()<<"Solver Thread "<<this->QObject::thread();
@@ -109,5 +111,3 @@ void Solver::finish() {
 
     emit finished();
 }
-
-
