@@ -25,6 +25,11 @@ void Solver::solve() {
     if(!abort) {
         Mat image_right = Mat::zeros(autostereogram.rows, autostereogram.cols, CV_8UC1);
         get_image_right(shift, &image_right);
+
+        Mat transformation_matrix = (Mat_<double>(2, 3) << 1, 0, 64, 0, 1, 0);  // Shift porque el disparity filtering recorta a la izquierda.
+        warpAffine(image_right, image_right, transformation_matrix, autostereogram.size());
+        warpAffine(image_left, image_left, transformation_matrix, autostereogram.size());
+
         imwrite("imgs/image_right.jpg", image_right);
         imwrite("imgs/image_left.jpg", image_left);
         // ./example_ximgproc_disparity_filtering.exe --right image_left.jpg --

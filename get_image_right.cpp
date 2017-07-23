@@ -27,5 +27,5 @@ void Solver::get_image_right(int shift, Mat* image) {
     cvtColor(difference, gray, CV_BGR2GRAY);
     gray(Rect(autostereogram.size().width-shift,0,shift,autostereogram.size().height))=0;    // Don't show back image.
     *image = get_image(translated, gray, shift);
-    emit show_image_left(QPixmap::fromImage(matRGB2QImage(resize_image(image))));
+    emit show_image_right(QPixmap::fromImage(matRGB2QImage(resize_image(image))));
 }

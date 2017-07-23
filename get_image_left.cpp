@@ -24,7 +24,7 @@ bool Solver::get_image_left(int* shift, Mat* image) {
         return abort;
     } else {
         *image = get_image(shifted, mask, -(*shift));
-        emit show_image_right(QPixmap::fromImage(matRGB2QImage(resize_image(&*image))));
+        emit show_image_left(QPixmap::fromImage(matRGB2QImage(resize_image(&*image))));
         return abort;
     }
 }
