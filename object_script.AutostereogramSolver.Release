@@ -4,8 +4,9 @@ INPUT(
 ./release\solver.o
 ./release\wbase.o
 ./release\image.o
-./release\get_image_left.o
+./release\get_image.o
 ./release\get_image_right.o
+./release\get_image_left.o
 ./release\moc_mainwindow.o
 ./release\moc_solver.o
 ./release\moc_wbase.o
