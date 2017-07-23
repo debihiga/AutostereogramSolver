@@ -9,7 +9,8 @@ SOURCES += main.cpp \
     solver.cpp \
     wbase.cpp \
     image.cpp \
-    get_image_left.cpp
+    get_image_left.cpp \
+    get_image_right.cpp
 
 INCLUDEPATH += C:\opencv\build-cpp-mingw-32\install\include
 LIBS += -LC:\opencv\build-cpp-mingw-32\install\x86\mingw\bin \

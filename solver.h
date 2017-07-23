@@ -25,7 +25,8 @@ private:
 public slots:
 
     void solve();
-    Mat get_image_left(Mat image, Mat mask);
+    Mat get_image_left(Mat autostereogram, Mat mask, int shift);
+    Mat get_image_right(Mat autostereogram, Mat translated, Mat image_left, int max_disparity);
 
 signals:
 

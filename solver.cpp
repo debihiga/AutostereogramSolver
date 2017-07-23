@@ -60,7 +60,7 @@ void Solver::solve() {
             }
             //gray(Rect(0,0,tx,autostereogram.size().height))=0;    // Don't show back image.
             emit show_image_left(QPixmap::fromImage(matGray2QImage(resize_image(&gray))));
-            //QThread::msleep(20);
+            //QThread::msleep(40);
 
             tx++;
         } else {
@@ -87,12 +87,35 @@ void Solver::solve() {
         //gray(Rect(0,0,tx_min,autostereogram.size().height))=0;    // Don't show back image.
 
         // Shift to left.
-        transformation_matrix = (Mat_<double>(2, 3) << 1, 0, -tx_min, 0, 1, 0);
-        warpAffine(gray, translated, transformation_matrix, autostereogram.size());
-        Mat image_left = get_image_left(autostereogram, translated);
+        //transformation_matrix = (Mat_<double>(2, 3) << 1, 0, -tx_min, 0, 1, 0);
+        //warpAffine(gray, translated, transformation_matrix, autostereogram.size());
+
+        gray(Rect(0,0,tx_min,autostereogram.size().height))=0;    // Don't show back image.
+        Mat image_left = get_image_left(translated, gray, -tx_min);
         emit show_image_left(QPixmap::fromImage(matRGB2QImage(resize_image(&image_left))));
 
+
+        transformation_matrix = (Mat_<double>(2, 3) << 1, 0, -tx_min, 0, 1, 0);
+        warpAffine(autostereogram, translated, transformation_matrix, autostereogram.size());
+        absdiff(autostereogram, translated, difference);   // This must be done with colored images.
+        cvtColor(difference, gray, CV_BGR2GRAY);
+        gray(Rect(0,0,tx_min,autostereogram.size().height))=0;    // Don't show back image.
+        Mat image_right = get_image_left(translated, gray, tx_min);
+        emit show_image_right(QPixmap::fromImage(matRGB2QImage(resize_image(&image_right))));
+
+
         qDebug()<<"Max disparity "<< tx_i+tx_min;
+
+        /*
+        transformation_matrix = (Mat_<double>(2, 3) << 1, 0, tx_min, 0, 1, 0);
+        //Mat transformation_matrix = (Mat_<double>(2, 3) << 1, 0, tx_i, 0, 1, 0);
+        //Mat transformation_matrix = (Mat_<double>(2, 3) << 1, 0, tx_f, 0, 1, 0);
+        warpAffine(autostereogram, translated, transformation_matrix, autostereogram.size());
+
+        Mat image_right = get_image_right(autostereogram, translated, image_left, tx_i+tx_min);
+        //emit show_image_right(QPixmap::fromImage(matRGB2QImage(resize_image(&image_right))));
+        imwrite("imgs/image_right.jpg", image_right);
+        */
     }
 
     qDebug()<<"Solver Thread "<<this->QObject::thread();
