@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Solver_t {
-    QByteArrayData data[22];
-    char stringdata0[239];
+    QByteArrayData data[35];
+    char stringdata0[374];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -52,7 +52,20 @@ QT_MOC_LITERAL(17, 188, 5), // "image"
 QT_MOC_LITERAL(18, 194, 15), // "get_image_right"
 QT_MOC_LITERAL(19, 210, 9), // "get_image"
 QT_MOC_LITERAL(20, 220, 3), // "Mat"
-QT_MOC_LITERAL(21, 224, 14) // "autostereogram"
+QT_MOC_LITERAL(21, 224, 14), // "autostereogram"
+QT_MOC_LITERAL(22, 239, 19), // "disparity_filtering"
+QT_MOC_LITERAL(23, 259, 4), // "left"
+QT_MOC_LITERAL(24, 264, 5), // "right"
+QT_MOC_LITERAL(25, 270, 6), // "String"
+QT_MOC_LITERAL(26, 277, 9), // "algorithm"
+QT_MOC_LITERAL(27, 287, 6), // "filter"
+QT_MOC_LITERAL(28, 294, 10), // "no_display"
+QT_MOC_LITERAL(29, 305, 12), // "no_downscale"
+QT_MOC_LITERAL(30, 318, 8), // "vis_mult"
+QT_MOC_LITERAL(31, 327, 13), // "max_disparity"
+QT_MOC_LITERAL(32, 341, 11), // "window_size"
+QT_MOC_LITERAL(33, 353, 10), // "wls_lambda"
+QT_MOC_LITERAL(34, 364, 9) // "wls_sigma"
 
     },
     "Solver\0show_image_autostereogram\0\0"
@@ -61,7 +74,11 @@ QT_MOC_LITERAL(21, 224, 14) // "autostereogram"
     "enable_btn_start\0solve\0find_mask\0int*\0"
     "tx_min\0Mat*\0shifted\0mask\0get_image_left\0"
     "shift\0image\0get_image_right\0get_image\0"
-    "Mat\0autostereogram"
+    "Mat\0autostereogram\0disparity_filtering\0"
+    "left\0right\0String\0algorithm\0filter\0"
+    "no_display\0no_downscale\0vis_mult\0"
+    "max_disparity\0window_size\0wls_lambda\0"
+    "wls_sigma"
 };
 #undef QT_MOC_LITERAL
 
@@ -71,7 +88,7 @@ static const uint qt_meta_data_Solver[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      11,   14, // methods
+      21,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -79,19 +96,29 @@ static const uint qt_meta_data_Solver[] = {
        6,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   69,    2, 0x06 /* Public */,
-       3,    1,   72,    2, 0x06 /* Public */,
-       4,    1,   75,    2, 0x06 /* Public */,
-       5,    1,   78,    2, 0x06 /* Public */,
-       6,    1,   81,    2, 0x06 /* Public */,
-       7,    1,   84,    2, 0x06 /* Public */,
+       1,    1,  119,    2, 0x06 /* Public */,
+       3,    1,  122,    2, 0x06 /* Public */,
+       4,    1,  125,    2, 0x06 /* Public */,
+       5,    1,  128,    2, 0x06 /* Public */,
+       6,    1,  131,    2, 0x06 /* Public */,
+       7,    1,  134,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       8,    0,   87,    2, 0x0a /* Public */,
-       9,    3,   88,    2, 0x0a /* Public */,
-      15,    2,   95,    2, 0x0a /* Public */,
-      18,    2,  100,    2, 0x0a /* Public */,
-      19,    3,  105,    2, 0x0a /* Public */,
+       8,    0,  137,    2, 0x0a /* Public */,
+       9,    3,  138,    2, 0x0a /* Public */,
+      15,    2,  145,    2, 0x0a /* Public */,
+      18,    2,  150,    2, 0x0a /* Public */,
+      19,    3,  155,    2, 0x0a /* Public */,
+      22,   11,  162,    2, 0x0a /* Public */,
+      22,   10,  185,    2, 0x2a /* Public | MethodCloned */,
+      22,    9,  206,    2, 0x2a /* Public | MethodCloned */,
+      22,    8,  225,    2, 0x2a /* Public | MethodCloned */,
+      22,    7,  242,    2, 0x2a /* Public | MethodCloned */,
+      22,    6,  257,    2, 0x2a /* Public | MethodCloned */,
+      22,    5,  270,    2, 0x2a /* Public | MethodCloned */,
+      22,    4,  281,    2, 0x2a /* Public | MethodCloned */,
+      22,    3,  290,    2, 0x2a /* Public | MethodCloned */,
+      22,    2,  297,    2, 0x2a /* Public | MethodCloned */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QPixmap,    2,
@@ -107,6 +134,16 @@ static const uint qt_meta_data_Solver[] = {
     QMetaType::Bool, 0x80000000 | 10, 0x80000000 | 12,   16,   17,
     QMetaType::Void, QMetaType::Int, 0x80000000 | 12,   16,   17,
     0x80000000 | 20, 0x80000000 | 20, 0x80000000 | 20, QMetaType::Int,   21,   14,   16,
+    0x80000000 | 20, 0x80000000 | 20, 0x80000000 | 20, 0x80000000 | 25, 0x80000000 | 25, QMetaType::Bool, QMetaType::Bool, QMetaType::Double, QMetaType::Int, QMetaType::Int, QMetaType::Double, QMetaType::Double,   23,   24,   26,   27,   28,   29,   30,   31,   32,   33,   34,
+    0x80000000 | 20, 0x80000000 | 20, 0x80000000 | 20, 0x80000000 | 25, 0x80000000 | 25, QMetaType::Bool, QMetaType::Bool, QMetaType::Double, QMetaType::Int, QMetaType::Int, QMetaType::Double,   23,   24,   26,   27,   28,   29,   30,   31,   32,   33,
+    0x80000000 | 20, 0x80000000 | 20, 0x80000000 | 20, 0x80000000 | 25, 0x80000000 | 25, QMetaType::Bool, QMetaType::Bool, QMetaType::Double, QMetaType::Int, QMetaType::Int,   23,   24,   26,   27,   28,   29,   30,   31,   32,
+    0x80000000 | 20, 0x80000000 | 20, 0x80000000 | 20, 0x80000000 | 25, 0x80000000 | 25, QMetaType::Bool, QMetaType::Bool, QMetaType::Double, QMetaType::Int,   23,   24,   26,   27,   28,   29,   30,   31,
+    0x80000000 | 20, 0x80000000 | 20, 0x80000000 | 20, 0x80000000 | 25, 0x80000000 | 25, QMetaType::Bool, QMetaType::Bool, QMetaType::Double,   23,   24,   26,   27,   28,   29,   30,
+    0x80000000 | 20, 0x80000000 | 20, 0x80000000 | 20, 0x80000000 | 25, 0x80000000 | 25, QMetaType::Bool, QMetaType::Bool,   23,   24,   26,   27,   28,   29,
+    0x80000000 | 20, 0x80000000 | 20, 0x80000000 | 20, 0x80000000 | 25, 0x80000000 | 25, QMetaType::Bool,   23,   24,   26,   27,   28,
+    0x80000000 | 20, 0x80000000 | 20, 0x80000000 | 20, 0x80000000 | 25, 0x80000000 | 25,   23,   24,   26,   27,
+    0x80000000 | 20, 0x80000000 | 20, 0x80000000 | 20, 0x80000000 | 25,   23,   24,   26,
+    0x80000000 | 20, 0x80000000 | 20, 0x80000000 | 20,   23,   24,
 
        0        // eod
 };
@@ -130,6 +167,26 @@ void Solver::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         case 9: _t->get_image_right((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< Mat*(*)>(_a[2]))); break;
         case 10: { Mat _r = _t->get_image((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])));
+            if (_a[0]) *reinterpret_cast< Mat*>(_a[0]) = std::move(_r); }  break;
+        case 11: { Mat _r = _t->disparity_filtering((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])),(*reinterpret_cast< String(*)>(_a[3])),(*reinterpret_cast< String(*)>(_a[4])),(*reinterpret_cast< bool(*)>(_a[5])),(*reinterpret_cast< bool(*)>(_a[6])),(*reinterpret_cast< double(*)>(_a[7])),(*reinterpret_cast< int(*)>(_a[8])),(*reinterpret_cast< int(*)>(_a[9])),(*reinterpret_cast< double(*)>(_a[10])),(*reinterpret_cast< double(*)>(_a[11])));
+            if (_a[0]) *reinterpret_cast< Mat*>(_a[0]) = std::move(_r); }  break;
+        case 12: { Mat _r = _t->disparity_filtering((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])),(*reinterpret_cast< String(*)>(_a[3])),(*reinterpret_cast< String(*)>(_a[4])),(*reinterpret_cast< bool(*)>(_a[5])),(*reinterpret_cast< bool(*)>(_a[6])),(*reinterpret_cast< double(*)>(_a[7])),(*reinterpret_cast< int(*)>(_a[8])),(*reinterpret_cast< int(*)>(_a[9])),(*reinterpret_cast< double(*)>(_a[10])));
+            if (_a[0]) *reinterpret_cast< Mat*>(_a[0]) = std::move(_r); }  break;
+        case 13: { Mat _r = _t->disparity_filtering((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])),(*reinterpret_cast< String(*)>(_a[3])),(*reinterpret_cast< String(*)>(_a[4])),(*reinterpret_cast< bool(*)>(_a[5])),(*reinterpret_cast< bool(*)>(_a[6])),(*reinterpret_cast< double(*)>(_a[7])),(*reinterpret_cast< int(*)>(_a[8])),(*reinterpret_cast< int(*)>(_a[9])));
+            if (_a[0]) *reinterpret_cast< Mat*>(_a[0]) = std::move(_r); }  break;
+        case 14: { Mat _r = _t->disparity_filtering((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])),(*reinterpret_cast< String(*)>(_a[3])),(*reinterpret_cast< String(*)>(_a[4])),(*reinterpret_cast< bool(*)>(_a[5])),(*reinterpret_cast< bool(*)>(_a[6])),(*reinterpret_cast< double(*)>(_a[7])),(*reinterpret_cast< int(*)>(_a[8])));
+            if (_a[0]) *reinterpret_cast< Mat*>(_a[0]) = std::move(_r); }  break;
+        case 15: { Mat _r = _t->disparity_filtering((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])),(*reinterpret_cast< String(*)>(_a[3])),(*reinterpret_cast< String(*)>(_a[4])),(*reinterpret_cast< bool(*)>(_a[5])),(*reinterpret_cast< bool(*)>(_a[6])),(*reinterpret_cast< double(*)>(_a[7])));
+            if (_a[0]) *reinterpret_cast< Mat*>(_a[0]) = std::move(_r); }  break;
+        case 16: { Mat _r = _t->disparity_filtering((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])),(*reinterpret_cast< String(*)>(_a[3])),(*reinterpret_cast< String(*)>(_a[4])),(*reinterpret_cast< bool(*)>(_a[5])),(*reinterpret_cast< bool(*)>(_a[6])));
+            if (_a[0]) *reinterpret_cast< Mat*>(_a[0]) = std::move(_r); }  break;
+        case 17: { Mat _r = _t->disparity_filtering((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])),(*reinterpret_cast< String(*)>(_a[3])),(*reinterpret_cast< String(*)>(_a[4])),(*reinterpret_cast< bool(*)>(_a[5])));
+            if (_a[0]) *reinterpret_cast< Mat*>(_a[0]) = std::move(_r); }  break;
+        case 18: { Mat _r = _t->disparity_filtering((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])),(*reinterpret_cast< String(*)>(_a[3])),(*reinterpret_cast< String(*)>(_a[4])));
+            if (_a[0]) *reinterpret_cast< Mat*>(_a[0]) = std::move(_r); }  break;
+        case 19: { Mat _r = _t->disparity_filtering((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])),(*reinterpret_cast< String(*)>(_a[3])));
+            if (_a[0]) *reinterpret_cast< Mat*>(_a[0]) = std::move(_r); }  break;
+        case 20: { Mat _r = _t->disparity_filtering((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])));
             if (_a[0]) *reinterpret_cast< Mat*>(_a[0]) = std::move(_r); }  break;
         default: ;
         }
@@ -206,13 +263,13 @@ int Solver::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 21)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 21;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 11)
+        if (_id < 21)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 11;
+        _id -= 21;
     }
     return _id;
 }

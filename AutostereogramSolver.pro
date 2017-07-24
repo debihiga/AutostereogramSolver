@@ -11,17 +11,21 @@ SOURCES += main.cpp \
     image.cpp \
     get_image.cpp \
     get_image_right.cpp \
-    get_image_left.cpp
+    get_image_left.cpp \
+    disparity_filtering.cpp
 
-INCLUDEPATH += C:\opencv\build-cpp-mingw-32\install\include
-LIBS += -LC:\opencv\build-cpp-mingw-32\install\x86\mingw\bin \
-    -lopencv_core310 -lopencv_highgui310 -lopencv_imgproc310 -lopencv_imgcodecs310
+INCLUDEPATH += C:\opencv\build-cpp-mingw-32-wextras\install\include
+
+LIBS += -LC:\opencv\build-cpp-mingw-32-wextras\install\x86\mingw\bin \
+    -lopencv_core310 -lopencv_highgui310 -lopencv_imgproc310 -lopencv_imgcodecs310 \
+    -lopencv_calib3d310 -lopencv_ximgproc310
 
 HEADERS += \
     mainwindow.h \
     solver.h \
     wbase.h \
-    image.h
+    image.h \
+    disparity_filtering.h
 
 FORMS += \
     mainwindow.ui

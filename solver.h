@@ -29,6 +29,11 @@ public slots:
     bool get_image_left(int* shift, Mat* image);
     void get_image_right(int shift, Mat* image);
     Mat get_image(Mat autostereogram, Mat mask, int shift);
+    Mat disparity_filtering(Mat left, Mat right,
+                            String algorithm="bm", String filter="wls_conf",
+                            bool no_display=false, bool no_downscale=false,
+                            double vis_mult=1.0, int max_disparity=160, int window_size=-1,
+                            double wls_lambda=8000.0, double wls_sigma=1.5);
 
 signals:
 

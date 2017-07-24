@@ -7,6 +7,7 @@ INPUT(
 ./debug\get_image.o
 ./debug\get_image_right.o
 ./debug\get_image_left.o
+./debug\disparity_filtering.o
 ./debug\moc_mainwindow.o
 ./debug\moc_solver.o
 ./debug\moc_wbase.o

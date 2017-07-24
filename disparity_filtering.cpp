@@ -1,15 +1,10 @@
-#include "opencv2/calib3d.hpp"
-#include "opencv2/imgproc.hpp"
-#include "opencv2/imgcodecs.hpp"
-#include "opencv2/highgui.hpp"
-#include "opencv2/core/utility.hpp"
-#include "opencv2/ximgproc/disparity_filter.hpp"
-#include <iostream>
-#include <string>
 
-using namespace cv;
-using namespace cv::ximgproc;
-using namespace std;
+#include "disparity_filtering.h"
+#include "solver.h"
+#include "image.h"
+#include <QString>
+
+
 
 Rect computeROI(Size2i src_sz, Ptr<StereoMatcher> matcher_instance);
 
@@ -32,8 +27,14 @@ const String keys =
     "{wls_sigma      |1.5               | parameter of post-filtering                                       }"
     ;
 
-int main(int argc, char** argv)
-{
+Mat Solver::disparity_filtering(Mat left, Mat right,
+                        String algo, String filter,
+                        bool no_display, bool no_downscale,
+                        double vis_mult, int max_disp, int window_size,
+                        double lambda, double sigma) {
+
+    Mat filtered_disp_vis;
+    /*
     CommandLineParser parser(argc,argv,keys);
     parser.about("Disparity Filtering Demo");
     if (parser.has("help"))
@@ -57,10 +58,11 @@ int main(int argc, char** argv)
     double lambda = parser.get<double>("wls_lambda");
     double sigma  = parser.get<double>("wls_sigma");
     double vis_mult = parser.get<double>("vis_mult");
+    */
 
     int wsize;
-    if(parser.get<int>("window_size")>=0) //user provided window_size value
-        wsize = parser.get<int>("window_size");
+    if(window_size>=0) //user provided window_size value
+        wsize = window_size;
     else
     {
         if(algo=="sgbm")
@@ -71,29 +73,34 @@ int main(int argc, char** argv)
             wsize = 15; //default window size for BM on full-sized views
     }
 
+    /*
     if (!parser.check())
     {
         parser.printErrors();
         return -1;
     }
-
+    */
     //! [load_views]
-    Mat left  = imread(left_im ,IMREAD_COLOR);
+    //Mat left  = imread(left_im ,IMREAD_COLOR);
+    /*
     if ( left.empty() )
     {
-        cout<<"Cannot read image file: "<<left_im;
+        //cout<<"Cannot read image file: "<<left_im;
         return -1;
-    }
+    }*/
 
-    Mat right = imread(right_im,IMREAD_COLOR);
+    //Mat right = imread(right_im,IMREAD_COLOR);
+    /*
     if ( right.empty() )
     {
-        cout<<"Cannot read image file: "<<right_im;
+        //cout<<"Cannot read image file: "<<right_im;
         return -1;
-    }
+    }*/
     //! [load_views]
 
-    bool noGT;
+
+    bool noGT=true;
+    /*
     Mat GT_disp;
     if (GT_path=="../data/aloeGT.png" && left_im!="../data/aloeL.jpg")
         noGT=true;
@@ -105,7 +112,7 @@ int main(int argc, char** argv)
             cout<<"Cannot read ground truth image file: "<<GT_path<<endl;
             return -1;
         }
-    }
+    }*/
 
     Mat left_for_matcher, right_for_matcher;
     Mat left_disp,right_disp;
@@ -118,12 +125,12 @@ int main(int argc, char** argv)
     if(max_disp<=0 || max_disp%16!=0)
     {
         cout<<"Incorrect max_disparity value: it should be positive and divisible by 16";
-        return -1;
+        //return -1;
     }
     if(wsize<=0 || wsize%2!=1)
     {
         cout<<"Incorrect window_size value: it should be positive and odd";
-        return -1;
+        //return -1;
     }
     if(filter=="wls_conf") // filtering with confidence (significantly better quality than wls_no_conf)
     {
@@ -179,7 +186,7 @@ int main(int argc, char** argv)
         else
         {
             cout<<"Unsupported algorithm";
-            return -1;
+            //return -1;
         }
 
         //! [filtering]
@@ -244,7 +251,7 @@ int main(int argc, char** argv)
         else
         {
             cout<<"Unsupported algorithm";
-            return -1;
+            //return -1;
         }
 
         wls_filter->setLambda(lambda);
@@ -256,7 +263,7 @@ int main(int argc, char** argv)
     else
     {
         cout<<"Unsupported filter";
-        return -1;
+        //return -1;
     }
 
     //collect and print all the stats:
@@ -266,6 +273,7 @@ int main(int argc, char** argv)
     cout<<endl;
 
     double MSE_before,percent_bad_before,MSE_after,percent_bad_after;
+    /*
     if(!noGT)
     {
         MSE_before = computeMSE(GT_disp,left_disp,ROI);
@@ -280,8 +288,8 @@ int main(int argc, char** argv)
         cout.precision(3);
         cout<<"Percent of bad pixels before filtering: "<<percent_bad_before<<endl;
         cout<<"Percent of bad pixels after filtering:  "<<percent_bad_after<<endl;
-    }
-
+    }*/
+    /*
     if(dst_path!="None")
     {
         Mat filtered_disp_vis;
@@ -298,9 +306,9 @@ int main(int argc, char** argv)
     {
         imwrite(dst_conf_path,conf_map);
     }
-
+    */
     if(!no_display)
-    {
+    {/*
         namedWindow("left", WINDOW_AUTOSIZE);
         imshow("left", left);
         namedWindow("right", WINDOW_AUTOSIZE);
@@ -313,25 +321,24 @@ int main(int argc, char** argv)
             namedWindow("ground-truth disparity", WINDOW_AUTOSIZE);
             imshow("ground-truth disparity", GT_disp_vis);
         }
-
+        */
         //! [visualization]
         Mat raw_disp_vis;
         getDisparityVis(left_disp,raw_disp_vis,vis_mult);
-        namedWindow("raw disparity", WINDOW_AUTOSIZE);
-        imshow("raw disparity", raw_disp_vis);
-        Mat filtered_disp_vis;
+        //namedWindow("raw disparity", WINDOW_AUTOSIZE);
+        //imshow("raw disparity", raw_disp_vis);
         getDisparityVis(filtered_disp,filtered_disp_vis,vis_mult);
-        namedWindow("filtered disparity", WINDOW_AUTOSIZE);
-        imshow("filtered disparity", filtered_disp_vis);
-        waitKey();
+        //namedWindow("filtered disparity", WINDOW_AUTOSIZE);
+        //imshow("filtered disparity", filtered_disp_vis);
+        //waitKey();
         //! [visualization]
     }
 
-    return 0;
+    return filtered_disp_vis;
+    //return 0;
 }
 
-Rect computeROI(Size2i src_sz, Ptr<StereoMatcher> matcher_instance)
-{
+Rect computeROI(Size2i src_sz, Ptr<StereoMatcher> matcher_instance) {
     int min_disparity = matcher_instance->getMinDisparity();
     int num_disparities = matcher_instance->getNumDisparities();
     int block_size = matcher_instance->getBlockSize();
