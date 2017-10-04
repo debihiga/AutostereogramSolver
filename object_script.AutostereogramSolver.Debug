@@ -8,6 +8,8 @@ INPUT(
 ./debug\disparity_filtering.o
 ./debug\get_image_left.o
 ./debug\get_image_right.o
+./debug\mask.o
+./debug\disparity_map.o
 ./debug\moc_mainwindow.o
 ./debug\moc_solver.o
 ./debug\moc_wbase.o

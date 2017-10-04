@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../../../Downloads/AutostereogramSolver-a81095352b476bee7939d01f919cb2c2ac9db59f/solver.h"
+#include "../solver.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Solver_t {
-    QByteArrayData data[18];
-    char stringdata0[224];
+    QByteArrayData data[26];
+    char stringdata0[297];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -41,23 +41,32 @@ QT_MOC_LITERAL(6, 88, 15), // "enable_btn_stop"
 QT_MOC_LITERAL(7, 104, 16), // "enable_btn_start"
 QT_MOC_LITERAL(8, 121, 5), // "solve"
 QT_MOC_LITERAL(9, 127, 14), // "get_image_left"
-QT_MOC_LITERAL(10, 142, 3), // "Mat"
-QT_MOC_LITERAL(11, 146, 14), // "autostereogram"
-QT_MOC_LITERAL(12, 161, 4), // "mask"
-QT_MOC_LITERAL(13, 166, 5), // "shift"
-QT_MOC_LITERAL(14, 172, 15), // "get_image_right"
-QT_MOC_LITERAL(15, 188, 10), // "translated"
-QT_MOC_LITERAL(16, 199, 10), // "image_left"
-QT_MOC_LITERAL(17, 210, 13) // "max_disparity"
+QT_MOC_LITERAL(10, 142, 4), // "int*"
+QT_MOC_LITERAL(11, 147, 5), // "shift"
+QT_MOC_LITERAL(12, 153, 4), // "Mat*"
+QT_MOC_LITERAL(13, 158, 5), // "image"
+QT_MOC_LITERAL(14, 164, 9), // "find_mask"
+QT_MOC_LITERAL(15, 174, 6), // "tx_min"
+QT_MOC_LITERAL(16, 181, 4), // "mask"
+QT_MOC_LITERAL(17, 186, 10), // "apply_mask"
+QT_MOC_LITERAL(18, 197, 3), // "Mat"
+QT_MOC_LITERAL(19, 201, 17), // "get_disparity_map"
+QT_MOC_LITERAL(20, 219, 10), // "image_left"
+QT_MOC_LITERAL(21, 230, 11), // "image_right"
+QT_MOC_LITERAL(22, 242, 13), // "max_disparity"
+QT_MOC_LITERAL(23, 256, 15), // "get_image_right"
+QT_MOC_LITERAL(24, 272, 9), // "get_image"
+QT_MOC_LITERAL(25, 282, 14) // "autostereogram"
 
     },
     "Solver\0show_image_autostereogram\0\0"
     "show_image_left\0show_image_right\0"
     "show_image_map_depth\0enable_btn_stop\0"
     "enable_btn_start\0solve\0get_image_left\0"
-    "Mat\0autostereogram\0mask\0shift\0"
-    "get_image_right\0translated\0image_left\0"
-    "max_disparity"
+    "int*\0shift\0Mat*\0image\0find_mask\0tx_min\0"
+    "mask\0apply_mask\0Mat\0get_disparity_map\0"
+    "image_left\0image_right\0max_disparity\0"
+    "get_image_right\0get_image\0autostereogram"
 };
 #undef QT_MOC_LITERAL
 
@@ -67,7 +76,7 @@ static const uint qt_meta_data_Solver[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      13,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -75,17 +84,21 @@ static const uint qt_meta_data_Solver[] = {
        6,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   59,    2, 0x06 /* Public */,
-       3,    1,   62,    2, 0x06 /* Public */,
-       4,    1,   65,    2, 0x06 /* Public */,
-       5,    1,   68,    2, 0x06 /* Public */,
-       6,    1,   71,    2, 0x06 /* Public */,
-       7,    1,   74,    2, 0x06 /* Public */,
+       1,    1,   79,    2, 0x06 /* Public */,
+       3,    1,   82,    2, 0x06 /* Public */,
+       4,    1,   85,    2, 0x06 /* Public */,
+       5,    1,   88,    2, 0x06 /* Public */,
+       6,    1,   91,    2, 0x06 /* Public */,
+       7,    1,   94,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       8,    0,   77,    2, 0x0a /* Public */,
-       9,    3,   78,    2, 0x0a /* Public */,
-      14,    4,   85,    2, 0x0a /* Public */,
+       8,    0,   97,    2, 0x0a /* Public */,
+       9,    2,   98,    2, 0x0a /* Public */,
+      14,    2,  103,    2, 0x0a /* Public */,
+      17,    2,  108,    2, 0x0a /* Public */,
+      19,    3,  113,    2, 0x0a /* Public */,
+      23,    2,  120,    2, 0x0a /* Public */,
+      24,    2,  125,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QPixmap,    2,
@@ -97,8 +110,12 @@ static const uint qt_meta_data_Solver[] = {
 
  // slots: parameters
     QMetaType::Void,
-    0x80000000 | 10, 0x80000000 | 10, 0x80000000 | 10, QMetaType::Int,   11,   12,   13,
-    0x80000000 | 10, 0x80000000 | 10, 0x80000000 | 10, 0x80000000 | 10, QMetaType::Int,   11,   15,   16,   17,
+    QMetaType::Bool, 0x80000000 | 10, 0x80000000 | 12,   11,   13,
+    QMetaType::Bool, 0x80000000 | 10, 0x80000000 | 12,   15,   16,
+    0x80000000 | 18, 0x80000000 | 18, 0x80000000 | 18,   13,   16,
+    0x80000000 | 18, 0x80000000 | 18, 0x80000000 | 18, QMetaType::Int,   20,   21,   22,
+    QMetaType::Void, QMetaType::Int, 0x80000000 | 12,   11,   13,
+    0x80000000 | 18, 0x80000000 | 18, 0x80000000 | 18,   25,   16,
 
        0        // eod
 };
@@ -116,9 +133,16 @@ void Solver::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 4: _t->enable_btn_stop((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 5: _t->enable_btn_start((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 6: _t->solve(); break;
-        case 7: { Mat _r = _t->get_image_left((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])));
+        case 7: { bool _r = _t->get_image_left((*reinterpret_cast< int*(*)>(_a[1])),(*reinterpret_cast< Mat*(*)>(_a[2])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 8: { bool _r = _t->find_mask((*reinterpret_cast< int*(*)>(_a[1])),(*reinterpret_cast< Mat*(*)>(_a[2])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 9: { Mat _r = _t->apply_mask((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])));
             if (_a[0]) *reinterpret_cast< Mat*>(_a[0]) = std::move(_r); }  break;
-        case 8: { Mat _r = _t->get_image_right((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])),(*reinterpret_cast< Mat(*)>(_a[3])),(*reinterpret_cast< int(*)>(_a[4])));
+        case 10: { Mat _r = _t->get_disparity_map((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])));
+            if (_a[0]) *reinterpret_cast< Mat*>(_a[0]) = std::move(_r); }  break;
+        case 11: _t->get_image_right((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< Mat*(*)>(_a[2]))); break;
+        case 12: { Mat _r = _t->get_image((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])));
             if (_a[0]) *reinterpret_cast< Mat*>(_a[0]) = std::move(_r); }  break;
         default: ;
         }
@@ -195,13 +219,13 @@ int Solver::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 13;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 13)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 9;
+        _id -= 13;
     }
     return _id;
 }

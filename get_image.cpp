@@ -23,7 +23,7 @@
  *
  * https://stackoverflow.com/questions/31133903/opencv-remove-background
  */
-Mat Solver::get_image(Mat image, Mat mask, int shift) {
+Mat Solver::get_image(Mat image, Mat mask) {
 
     //imwrite("imgs/1_mask_left_initial.jpg", mask);
 
@@ -66,8 +66,8 @@ Mat Solver::get_image(Mat image, Mat mask, int shift) {
     //imwrite("imgs/6_image_left.jpg", image_left);
 
     // Shift.
-    Mat transformation_matrix = (Mat_<double>(2, 3) << 1, 0, shift, 0, 1, 0);
-    warpAffine(image_left, image_left, transformation_matrix, image.size());
+    //Mat transformation_matrix = (Mat_<double>(2, 3) << 1, 0, shift, 0, 1, 0);
+    //warpAffine(image_left, image_left, transformation_matrix, image.size());
     //imwrite("imgs/7_image_left_shifted.jpg", image_left);
 
     return image_left;
