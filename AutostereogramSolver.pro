@@ -10,9 +10,9 @@ SOURCES += main.cpp \
     wbase.cpp \
     image.cpp \
     get_image.cpp \
-    get_image_right.cpp \
+    disparity_filtering.cpp \
     get_image_left.cpp \
-    disparity_filtering.cpp
+    get_image_right.cpp
 
 INCLUDEPATH += C:\opencv\build-cpp-mingw-32-wextras\install\include
 

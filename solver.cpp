@@ -24,8 +24,7 @@ void Solver::solve() {
     Mat image_left = Mat::zeros(autostereogram.rows, autostereogram.cols, CV_8UC3);
     bool abort = get_image_left(&shift, &image_left);
     if(!abort) {
-        Mat image_right = Mat::zeros(autostereogram.rows, autostereogram.cols, CV_8UC3);
-        get_image_right(shift, &image_right);
+        Mat image_right = get_image_right(autostereogram, &image_left);
 
         int EXTENSION = 160;
         Mat image_right_extended = Mat::zeros(autostereogram.rows, autostereogram.cols+EXTENSION, CV_8UC3);
@@ -39,7 +38,24 @@ void Solver::solve() {
         imwrite("imgs/image_right.jpg", image_right_extended);
         imwrite("imgs/image_left.jpg", image_left_extended);
 
-        Mat disparity_map = disparity_filtering(image_left_extended, image_right_extended);
+        image_right_extended = imread("imgs/sample.jpg");
+        image_left_extended = imread("imgs/0-c.jpg");
+        Mat disparity_map = disparity_filtering(image_right_extended,image_left_extended,
+                                                "sgbm", "wls_conf",
+                                                false,
+                                                1.0, shift+10, 5,
+                                                8000.0, 1.5);
+        qDebug() << shift;
+        imwrite("imgs/disparity_map.jpg", disparity_map);
+        /*
+Mat left, Mat right,
+                        String algo, String filter,
+                        bool no_downscale,
+                        double vis_mult, int max_disp, int window_size,
+                        double lambda, double sigma
+*/
+
+
         Size size(autostereogram.rows,autostereogram.cols);
         resize(disparity_map, disparity_map, size);
         emit show_image_map_depth(QPixmap::fromImage(matGray2QImage(resize_image(&disparity_map))));
