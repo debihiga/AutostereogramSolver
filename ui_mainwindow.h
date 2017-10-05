@@ -19,6 +19,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSlider>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -40,6 +41,7 @@ public:
     QLabel *label_3;
     QLabel *label_image_left;
     QLabel *label_image_right;
+    QSlider *slider_q;
     QHBoxLayout *horizontalLayout_3;
     QPushButton *btn_start;
     QPushButton *btn_stop;
@@ -112,6 +114,17 @@ public:
 
         gridLayout_2->addWidget(label_image_right, 5, 1, 1, 1);
 
+        slider_q = new QSlider(centralWidget);
+        slider_q->setObjectName(QStringLiteral("slider_q"));
+        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(slider_q->sizePolicy().hasHeightForWidth());
+        slider_q->setSizePolicy(sizePolicy);
+        slider_q->setOrientation(Qt::Horizontal);
+
+        gridLayout_2->addWidget(slider_q, 1, 1, 1, 1);
+
 
         verticalLayout->addLayout(gridLayout_2);
 
@@ -154,7 +167,7 @@ public:
         label_image_left->setText(QApplication::translate("MainWindow", "Image Left", Q_NULLPTR));
         label_image_right->setText(QApplication::translate("MainWindow", "Image Right", Q_NULLPTR));
         btn_start->setText(QApplication::translate("MainWindow", "Iniciar", Q_NULLPTR));
-        btn_stop->setText(QApplication::translate("MainWindow", "Detener", Q_NULLPTR));
+        btn_stop->setText(QApplication::translate("MainWindow", "Finalizar", Q_NULLPTR));
     } // retranslateUi
 
 };

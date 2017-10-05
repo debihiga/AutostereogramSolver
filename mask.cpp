@@ -87,7 +87,7 @@ bool Solver::find_mask(int* tx_min, Mat* mask_out) {
  *
  * https://stackoverflow.com/questions/31133903/opencv-remove-background
  */
-Mat Solver::apply_mask(Mat image, Mat mask) {
+Mat Solver::apply_mask(Mat image_original, Mat mask) {
 
     //imwrite("imgs/1_mask_left_initial.jpg", mask);
 
@@ -125,8 +125,8 @@ Mat Solver::apply_mask(Mat image, Mat mask) {
 
     // Apply mask.
     // http://answers.opencv.org/question/74440/opencv-masking-operation-does-not-function-properly/
-    Mat image_left = Mat::zeros(mask.rows, mask.cols, CV_8UC1);
-    image.copyTo(image_left, mask);
+    Mat image = Mat::zeros(mask.rows, mask.cols, CV_8UC1);
+    image_original.copyTo(image, mask);
     //imwrite("imgs/6_image_left.jpg", image_left);
 
     // Shift.
@@ -134,7 +134,7 @@ Mat Solver::apply_mask(Mat image, Mat mask) {
     //warpAffine(image_left, image_left, transformation_matrix, image.size());
     //imwrite("imgs/7_image_left_shifted.jpg", image_left);
 
-    return image_left;
+    return image;
 }
 
 

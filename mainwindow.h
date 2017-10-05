@@ -36,6 +36,8 @@ private slots:
     void on_btn_stop_clicked();
     void on_btn_select_autostereogram_clicked();
 
+    void on_slider_q_valueChanged(int value);
+
 public slots:
 
     void set_new_autostereogram(Mat* image);

@@ -12,12 +12,13 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->btn_stop->setEnabled(false);
+    ui->slider_q->setEnabled(false);
 
     autostereogram = imread("imgs/sample.jpg", IMREAD_COLOR);
     set_new_autostereogram(&autostereogram);
 
-    qDebug()<<"MainWindow constructor Thread "<<this->QObject::thread();
-
+    t_solver = NULL;
+    solver = NULL;
 }
 
 MainWindow::~MainWindow() {
@@ -40,11 +41,20 @@ void MainWindow::on_btn_start_clicked() {
     connect(solver, SIGNAL(show_image_left(const QPixmap &)), ui->label_image_left, SLOT(setPixmap(const QPixmap &)));
     connect(solver, SIGNAL(show_image_right(const QPixmap &)), ui->label_image_right, SLOT(setPixmap(const QPixmap &)));
     connect(solver, SIGNAL(show_image_map_depth(const QPixmap &)), ui->label_image_map_depth, SLOT(setPixmap(const QPixmap &)));
+
+    ui->slider_q->setTracking(false);
+    connect(solver, &Solver::set_slider_minimum, this, [=](int value){ui->slider_q->setMinimum(value);});
+    connect(solver, &Solver::set_slider_maximum, this, [=](int value){ui->slider_q->setMaximum(value);});
+    connect(solver, &Solver::set_slider_value, this, [=](int value){ui->slider_q->setValue(value);});
+    connect(solver, &Solver::set_slider_enabled, this, [=](){ui->slider_q->setEnabled(true);});
+    //connect(ui->slider_q, SIGNAL(valueChanged(int)), solver, SLOT(change_disparity_map_grayscale(int))); not working
+
     // https://stackoverflow.com/questions/5153157/passing-an-argument-to-a-slot
     // https://artandlogic.com/2013/09/qt-5-and-c11-lambdas-are-your-friend/
     connect(solver, &Solver::workRequested, this, [=](){ui->btn_stop->setEnabled(true);});
     connect(solver, &Solver::workRequested, this, [=](){ui->btn_start->setEnabled(false);});
     connect(solver, &Solver::workRequested, this, [=](){ui->btn_select_autostereogram->setEnabled(false);});
+    connect(solver, &Solver::workRequested, this, [=](){ui->slider_q->setEnabled(false);});
     connect(t_solver, &QThread::finished, this, [=](){ui->btn_stop->setEnabled(false);});
     connect(t_solver, &QThread::finished, this, [=](){ui->btn_start->setEnabled(true);});
     connect(t_solver, &QThread::finished, this, [=](){ui->btn_select_autostereogram->setEnabled(true);});
@@ -75,4 +85,8 @@ void MainWindow::on_btn_select_autostereogram_clicked() {
         autostereogram = imread(file.toStdString(), IMREAD_COLOR);
         set_new_autostereogram(&autostereogram);
     }
+}
+
+void MainWindow::on_slider_q_valueChanged(int value) {
+    solver->change_disparity_map_grayscale(value);
 }

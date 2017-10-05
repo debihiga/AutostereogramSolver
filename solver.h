@@ -16,6 +16,8 @@ class Solver: public WBase {
 public:
 
     explicit Solver(Mat* autostereogram, WBase *parent=0);
+    int max_disparity;
+    Mat tx_map;
 
 private:
 
@@ -26,16 +28,10 @@ public slots:
 
     void solve();
 
-    bool get_image_left(int* shift, Mat* image);
-    //bool find_mask(int* tx_min, Mat* shifted, Mat* mask);
     bool find_mask(int* tx_min, Mat* mask);
-    //Mat apply_mask(Mat autostereogram, Mat mask, int shift);
-Mat apply_mask(Mat image, Mat mask);
-Mat get_disparity_map(Mat image_left, Mat image_right, int max_disparity);
-    //void get_image_right(int shift, Mat* image);
-    //Mat get_image_right(Mat autostereogram, Mat *image_left);
-void get_image_right(int shift, Mat* image);
-    Mat get_image(Mat autostereogram, Mat mask);
+    Mat apply_mask(Mat image, Mat mask);
+    void get_disparity_map(Mat image_left, Mat image_right);
+    void change_disparity_map_grayscale(int);
 
 signals:
 
@@ -46,6 +42,11 @@ signals:
 
     void enable_btn_stop(bool);
     void enable_btn_start(bool);
+
+    void set_slider_minimum(int);
+    void set_slider_maximum(int);
+    void set_slider_value(int);
+    void set_slider_enabled();
 };
 
 #endif // SOLVER_H

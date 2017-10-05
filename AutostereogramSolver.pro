@@ -9,10 +9,6 @@ SOURCES += main.cpp \
     solver.cpp \
     wbase.cpp \
     image.cpp \
-    get_image.cpp \
-    disparity_filtering.cpp \
-    get_image_left.cpp \
-    get_image_right.cpp \
     mask.cpp \
     disparity_map.cpp
 
@@ -26,8 +22,7 @@ HEADERS += \
     mainwindow.h \
     solver.h \
     wbase.h \
-    image.h \
-    disparity_filtering.h
+    image.h
 
 FORMS += \
     mainwindow.ui

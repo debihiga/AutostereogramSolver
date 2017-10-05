@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Solver_t {
-    QByteArrayData data[26];
-    char stringdata0[297];
+    QByteArrayData data[25];
+    char stringdata0[326];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -39,34 +39,34 @@ QT_MOC_LITERAL(4, 50, 16), // "show_image_right"
 QT_MOC_LITERAL(5, 67, 20), // "show_image_map_depth"
 QT_MOC_LITERAL(6, 88, 15), // "enable_btn_stop"
 QT_MOC_LITERAL(7, 104, 16), // "enable_btn_start"
-QT_MOC_LITERAL(8, 121, 5), // "solve"
-QT_MOC_LITERAL(9, 127, 14), // "get_image_left"
-QT_MOC_LITERAL(10, 142, 4), // "int*"
-QT_MOC_LITERAL(11, 147, 5), // "shift"
-QT_MOC_LITERAL(12, 153, 4), // "Mat*"
-QT_MOC_LITERAL(13, 158, 5), // "image"
-QT_MOC_LITERAL(14, 164, 9), // "find_mask"
-QT_MOC_LITERAL(15, 174, 6), // "tx_min"
-QT_MOC_LITERAL(16, 181, 4), // "mask"
-QT_MOC_LITERAL(17, 186, 10), // "apply_mask"
-QT_MOC_LITERAL(18, 197, 3), // "Mat"
-QT_MOC_LITERAL(19, 201, 17), // "get_disparity_map"
-QT_MOC_LITERAL(20, 219, 10), // "image_left"
-QT_MOC_LITERAL(21, 230, 11), // "image_right"
-QT_MOC_LITERAL(22, 242, 13), // "max_disparity"
-QT_MOC_LITERAL(23, 256, 15), // "get_image_right"
-QT_MOC_LITERAL(24, 272, 9), // "get_image"
-QT_MOC_LITERAL(25, 282, 14) // "autostereogram"
+QT_MOC_LITERAL(8, 121, 18), // "set_slider_minimum"
+QT_MOC_LITERAL(9, 140, 18), // "set_slider_maximum"
+QT_MOC_LITERAL(10, 159, 16), // "set_slider_value"
+QT_MOC_LITERAL(11, 176, 18), // "set_slider_enabled"
+QT_MOC_LITERAL(12, 195, 5), // "solve"
+QT_MOC_LITERAL(13, 201, 9), // "find_mask"
+QT_MOC_LITERAL(14, 211, 4), // "int*"
+QT_MOC_LITERAL(15, 216, 6), // "tx_min"
+QT_MOC_LITERAL(16, 223, 4), // "Mat*"
+QT_MOC_LITERAL(17, 228, 4), // "mask"
+QT_MOC_LITERAL(18, 233, 10), // "apply_mask"
+QT_MOC_LITERAL(19, 244, 3), // "Mat"
+QT_MOC_LITERAL(20, 248, 5), // "image"
+QT_MOC_LITERAL(21, 254, 17), // "get_disparity_map"
+QT_MOC_LITERAL(22, 272, 10), // "image_left"
+QT_MOC_LITERAL(23, 283, 11), // "image_right"
+QT_MOC_LITERAL(24, 295, 30) // "change_disparity_map_grayscale"
 
     },
     "Solver\0show_image_autostereogram\0\0"
     "show_image_left\0show_image_right\0"
     "show_image_map_depth\0enable_btn_stop\0"
-    "enable_btn_start\0solve\0get_image_left\0"
-    "int*\0shift\0Mat*\0image\0find_mask\0tx_min\0"
-    "mask\0apply_mask\0Mat\0get_disparity_map\0"
-    "image_left\0image_right\0max_disparity\0"
-    "get_image_right\0get_image\0autostereogram"
+    "enable_btn_start\0set_slider_minimum\0"
+    "set_slider_maximum\0set_slider_value\0"
+    "set_slider_enabled\0solve\0find_mask\0"
+    "int*\0tx_min\0Mat*\0mask\0apply_mask\0Mat\0"
+    "image\0get_disparity_map\0image_left\0"
+    "image_right\0change_disparity_map_grayscale"
 };
 #undef QT_MOC_LITERAL
 
@@ -76,29 +76,31 @@ static const uint qt_meta_data_Solver[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      13,   14, // methods
+      15,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       6,       // signalCount
+      10,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   79,    2, 0x06 /* Public */,
-       3,    1,   82,    2, 0x06 /* Public */,
-       4,    1,   85,    2, 0x06 /* Public */,
-       5,    1,   88,    2, 0x06 /* Public */,
-       6,    1,   91,    2, 0x06 /* Public */,
-       7,    1,   94,    2, 0x06 /* Public */,
+       1,    1,   89,    2, 0x06 /* Public */,
+       3,    1,   92,    2, 0x06 /* Public */,
+       4,    1,   95,    2, 0x06 /* Public */,
+       5,    1,   98,    2, 0x06 /* Public */,
+       6,    1,  101,    2, 0x06 /* Public */,
+       7,    1,  104,    2, 0x06 /* Public */,
+       8,    1,  107,    2, 0x06 /* Public */,
+       9,    1,  110,    2, 0x06 /* Public */,
+      10,    1,  113,    2, 0x06 /* Public */,
+      11,    0,  116,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       8,    0,   97,    2, 0x0a /* Public */,
-       9,    2,   98,    2, 0x0a /* Public */,
-      14,    2,  103,    2, 0x0a /* Public */,
-      17,    2,  108,    2, 0x0a /* Public */,
-      19,    3,  113,    2, 0x0a /* Public */,
-      23,    2,  120,    2, 0x0a /* Public */,
-      24,    2,  125,    2, 0x0a /* Public */,
+      12,    0,  117,    2, 0x0a /* Public */,
+      13,    2,  118,    2, 0x0a /* Public */,
+      18,    2,  123,    2, 0x0a /* Public */,
+      21,    2,  128,    2, 0x0a /* Public */,
+      24,    1,  133,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QPixmap,    2,
@@ -107,15 +109,17 @@ static const uint qt_meta_data_Solver[] = {
     QMetaType::Void, QMetaType::QPixmap,    2,
     QMetaType::Void, QMetaType::Bool,    2,
     QMetaType::Void, QMetaType::Bool,    2,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void,
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Bool, 0x80000000 | 10, 0x80000000 | 12,   11,   13,
-    QMetaType::Bool, 0x80000000 | 10, 0x80000000 | 12,   15,   16,
-    0x80000000 | 18, 0x80000000 | 18, 0x80000000 | 18,   13,   16,
-    0x80000000 | 18, 0x80000000 | 18, 0x80000000 | 18, QMetaType::Int,   20,   21,   22,
-    QMetaType::Void, QMetaType::Int, 0x80000000 | 12,   11,   13,
-    0x80000000 | 18, 0x80000000 | 18, 0x80000000 | 18,   25,   16,
+    QMetaType::Bool, 0x80000000 | 14, 0x80000000 | 16,   15,   17,
+    0x80000000 | 19, 0x80000000 | 19, 0x80000000 | 19,   20,   17,
+    QMetaType::Void, 0x80000000 | 19, 0x80000000 | 19,   22,   23,
+    QMetaType::Void, QMetaType::Int,    2,
 
        0        // eod
 };
@@ -132,18 +136,17 @@ void Solver::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 3: _t->show_image_map_depth((*reinterpret_cast< const QPixmap(*)>(_a[1]))); break;
         case 4: _t->enable_btn_stop((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 5: _t->enable_btn_start((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 6: _t->solve(); break;
-        case 7: { bool _r = _t->get_image_left((*reinterpret_cast< int*(*)>(_a[1])),(*reinterpret_cast< Mat*(*)>(_a[2])));
+        case 6: _t->set_slider_minimum((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 7: _t->set_slider_maximum((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 8: _t->set_slider_value((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 9: _t->set_slider_enabled(); break;
+        case 10: _t->solve(); break;
+        case 11: { bool _r = _t->find_mask((*reinterpret_cast< int*(*)>(_a[1])),(*reinterpret_cast< Mat*(*)>(_a[2])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 8: { bool _r = _t->find_mask((*reinterpret_cast< int*(*)>(_a[1])),(*reinterpret_cast< Mat*(*)>(_a[2])));
-            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 9: { Mat _r = _t->apply_mask((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])));
+        case 12: { Mat _r = _t->apply_mask((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])));
             if (_a[0]) *reinterpret_cast< Mat*>(_a[0]) = std::move(_r); }  break;
-        case 10: { Mat _r = _t->get_disparity_map((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])));
-            if (_a[0]) *reinterpret_cast< Mat*>(_a[0]) = std::move(_r); }  break;
-        case 11: _t->get_image_right((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< Mat*(*)>(_a[2]))); break;
-        case 12: { Mat _r = _t->get_image((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])));
-            if (_a[0]) *reinterpret_cast< Mat*>(_a[0]) = std::move(_r); }  break;
+        case 13: _t->get_disparity_map((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2]))); break;
+        case 14: _t->change_disparity_map_grayscale((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -191,6 +194,34 @@ void Solver::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
                 return;
             }
         }
+        {
+            typedef void (Solver::*_t)(int );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Solver::set_slider_minimum)) {
+                *result = 6;
+                return;
+            }
+        }
+        {
+            typedef void (Solver::*_t)(int );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Solver::set_slider_maximum)) {
+                *result = 7;
+                return;
+            }
+        }
+        {
+            typedef void (Solver::*_t)(int );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Solver::set_slider_value)) {
+                *result = 8;
+                return;
+            }
+        }
+        {
+            typedef void (Solver::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&Solver::set_slider_enabled)) {
+                *result = 9;
+                return;
+            }
+        }
     }
 }
 
@@ -219,13 +250,13 @@ int Solver::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 13)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 15;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 13)
+        if (_id < 15)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 13;
+        _id -= 15;
     }
     return _id;
 }
@@ -270,6 +301,33 @@ void Solver::enable_btn_start(bool _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 5, _a);
+}
+
+// SIGNAL 6
+void Solver::set_slider_minimum(int _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 6, _a);
+}
+
+// SIGNAL 7
+void Solver::set_slider_maximum(int _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 7, _a);
+}
+
+// SIGNAL 8
+void Solver::set_slider_value(int _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 8, _a);
+}
+
+// SIGNAL 9
+void Solver::set_slider_enabled()
+{
+    QMetaObject::activate(this, &staticMetaObject, 9, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

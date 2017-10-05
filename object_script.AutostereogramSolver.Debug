@@ -4,10 +4,6 @@ INPUT(
 ./debug\solver.o
 ./debug\wbase.o
 ./debug\image.o
-./debug\get_image.o
-./debug\disparity_filtering.o
-./debug\get_image_left.o
-./debug\get_image_right.o
 ./debug\mask.o
 ./debug\disparity_map.o
 ./debug\moc_mainwindow.o

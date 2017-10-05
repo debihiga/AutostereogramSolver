@@ -104,6 +104,19 @@
         </property>
        </widget>
       </item>
+      <item row="1" column="1">
+       <widget class="QSlider" name="slider_q">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
     <item>
@@ -118,7 +131,7 @@
       <item>
        <widget class="QPushButton" name="btn_stop">
         <property name="text">
-         <string>Detener</string>
+         <string>Finalizar</string>
         </property>
        </widget>
       </item>

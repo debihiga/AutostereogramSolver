@@ -4,10 +4,6 @@ INPUT(
 ./release\solver.o
 ./release\wbase.o
 ./release\image.o
-./release\get_image.o
-./release\disparity_filtering.o
-./release\get_image_left.o
-./release\get_image_right.o
 ./release\mask.o
 ./release\disparity_map.o
 ./release\moc_mainwindow.o
