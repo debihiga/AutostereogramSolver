@@ -9,8 +9,9 @@
  * and itself shifted the size of the pattern to the right.
 
  */
-bool Solver::find_mask(int* tx_min, Mat* mask_out) {
+Mat Solver::find_mask() {
 
+    Mat mask_out = Mat::zeros(autostereogram.rows, autostereogram.cols, CV_8UC1);
     bool abort;
 
     // http://docs.opencv.org/3.0-beta/doc/py_tutorials/py_imgproc/py_geometric_transformations/py_geometric_transformations.html
@@ -46,10 +47,10 @@ bool Solver::find_mask(int* tx_min, Mat* mask_out) {
             int _mean = (int)mean(gray, mask)[0];
             if(_mean<mean_min) {
                 mean_min = _mean;
-                *tx_min = tx;
-                gray(Rect(0,0,*tx_min,autostereogram.size().height))=0;    // Don't show back image.
+                max_disparity = tx;
+                gray(Rect(0,0,max_disparity,autostereogram.size().height))=0;    // Don't show back image.
                 //shifted.copyTo(*shifted_out);
-                gray.copyTo(*mask_out);
+                gray.copyTo(mask_out);
             }
 
             emit show_image_left(QPixmap::fromImage(matGray2QImage(resize_image(&gray))));
@@ -62,7 +63,10 @@ bool Solver::find_mask(int* tx_min, Mat* mask_out) {
         }
     }
 
-    return abort;
+    if(abort) {
+        return Mat::zeros(autostereogram.rows, autostereogram.cols, CV_8UC1);
+    }
+    return mask_out;
 }
 
 #define THRESHOLD           60

@@ -28,7 +28,7 @@ public slots:
 
     void solve();
 
-    bool find_mask(int* tx_min, Mat* mask);
+    Mat find_mask();
     Mat apply_mask(Mat image, Mat mask);
     void get_disparity_map(Mat image_left, Mat image_right);
     void change_disparity_map_grayscale(int);

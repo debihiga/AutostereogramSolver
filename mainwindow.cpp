@@ -63,6 +63,7 @@ void MainWindow::on_btn_start_clicked() {
 }
 
 void MainWindow::on_btn_stop_clicked() {
+    ui->slider_q->setEnabled(false);
     if(t_solver->isRunning()) {
         solver->requestFinish();
         //t_solver->wait();

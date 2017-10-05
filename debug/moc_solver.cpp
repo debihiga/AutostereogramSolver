@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Solver_t {
-    QByteArrayData data[25];
-    char stringdata0[326];
+    QByteArrayData data[22];
+    char stringdata0[309];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -45,17 +45,14 @@ QT_MOC_LITERAL(10, 159, 16), // "set_slider_value"
 QT_MOC_LITERAL(11, 176, 18), // "set_slider_enabled"
 QT_MOC_LITERAL(12, 195, 5), // "solve"
 QT_MOC_LITERAL(13, 201, 9), // "find_mask"
-QT_MOC_LITERAL(14, 211, 4), // "int*"
-QT_MOC_LITERAL(15, 216, 6), // "tx_min"
-QT_MOC_LITERAL(16, 223, 4), // "Mat*"
-QT_MOC_LITERAL(17, 228, 4), // "mask"
-QT_MOC_LITERAL(18, 233, 10), // "apply_mask"
-QT_MOC_LITERAL(19, 244, 3), // "Mat"
-QT_MOC_LITERAL(20, 248, 5), // "image"
-QT_MOC_LITERAL(21, 254, 17), // "get_disparity_map"
-QT_MOC_LITERAL(22, 272, 10), // "image_left"
-QT_MOC_LITERAL(23, 283, 11), // "image_right"
-QT_MOC_LITERAL(24, 295, 30) // "change_disparity_map_grayscale"
+QT_MOC_LITERAL(14, 211, 3), // "Mat"
+QT_MOC_LITERAL(15, 215, 10), // "apply_mask"
+QT_MOC_LITERAL(16, 226, 5), // "image"
+QT_MOC_LITERAL(17, 232, 4), // "mask"
+QT_MOC_LITERAL(18, 237, 17), // "get_disparity_map"
+QT_MOC_LITERAL(19, 255, 10), // "image_left"
+QT_MOC_LITERAL(20, 266, 11), // "image_right"
+QT_MOC_LITERAL(21, 278, 30) // "change_disparity_map_grayscale"
 
     },
     "Solver\0show_image_autostereogram\0\0"
@@ -64,9 +61,9 @@ QT_MOC_LITERAL(24, 295, 30) // "change_disparity_map_grayscale"
     "enable_btn_start\0set_slider_minimum\0"
     "set_slider_maximum\0set_slider_value\0"
     "set_slider_enabled\0solve\0find_mask\0"
-    "int*\0tx_min\0Mat*\0mask\0apply_mask\0Mat\0"
-    "image\0get_disparity_map\0image_left\0"
-    "image_right\0change_disparity_map_grayscale"
+    "Mat\0apply_mask\0image\0mask\0get_disparity_map\0"
+    "image_left\0image_right\0"
+    "change_disparity_map_grayscale"
 };
 #undef QT_MOC_LITERAL
 
@@ -97,10 +94,10 @@ static const uint qt_meta_data_Solver[] = {
 
  // slots: name, argc, parameters, tag, flags
       12,    0,  117,    2, 0x0a /* Public */,
-      13,    2,  118,    2, 0x0a /* Public */,
-      18,    2,  123,    2, 0x0a /* Public */,
-      21,    2,  128,    2, 0x0a /* Public */,
-      24,    1,  133,    2, 0x0a /* Public */,
+      13,    0,  118,    2, 0x0a /* Public */,
+      15,    2,  119,    2, 0x0a /* Public */,
+      18,    2,  124,    2, 0x0a /* Public */,
+      21,    1,  129,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QPixmap,    2,
@@ -116,9 +113,9 @@ static const uint qt_meta_data_Solver[] = {
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Bool, 0x80000000 | 14, 0x80000000 | 16,   15,   17,
-    0x80000000 | 19, 0x80000000 | 19, 0x80000000 | 19,   20,   17,
-    QMetaType::Void, 0x80000000 | 19, 0x80000000 | 19,   22,   23,
+    0x80000000 | 14,
+    0x80000000 | 14, 0x80000000 | 14, 0x80000000 | 14,   16,   17,
+    QMetaType::Void, 0x80000000 | 14, 0x80000000 | 14,   19,   20,
     QMetaType::Void, QMetaType::Int,    2,
 
        0        // eod
@@ -141,8 +138,8 @@ void Solver::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 8: _t->set_slider_value((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 9: _t->set_slider_enabled(); break;
         case 10: _t->solve(); break;
-        case 11: { bool _r = _t->find_mask((*reinterpret_cast< int*(*)>(_a[1])),(*reinterpret_cast< Mat*(*)>(_a[2])));
-            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 11: { Mat _r = _t->find_mask();
+            if (_a[0]) *reinterpret_cast< Mat*>(_a[0]) = std::move(_r); }  break;
         case 12: { Mat _r = _t->apply_mask((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])));
             if (_a[0]) *reinterpret_cast< Mat*>(_a[0]) = std::move(_r); }  break;
         case 13: _t->get_disparity_map((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2]))); break;

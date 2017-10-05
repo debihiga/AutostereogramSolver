@@ -18,10 +18,9 @@ void Solver::solve() {
     }
 
     // Get mask.
-    Mat mask = Mat::zeros(autostereogram.rows, autostereogram.cols, CV_8UC3);
-    bool abort = find_mask(&max_disparity, &mask);
+    Mat mask = find_mask();
 
-    if(!abort) {
+    if(countNonZero(mask)>1) {
 
         // Get image right.
         imwrite("imgs/out/1_mask_right.jpg", mask);
@@ -45,7 +44,7 @@ void Solver::solve() {
 
     while(_working) {
         mutex_finish.lock();
-        abort = _finish;
+        bool abort = _finish;
         mutex_finish.unlock();
         if(abort) {
             break;
