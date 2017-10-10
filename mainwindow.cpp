@@ -40,7 +40,7 @@ void MainWindow::on_btn_start_clicked() {
     connect(solver, SIGNAL(show_image_autostereogram(const QPixmap &)), ui->label_image_autostereogram, SLOT(setPixmap(const QPixmap &)));
     connect(solver, SIGNAL(show_image_left(const QPixmap &)), ui->label_image_left, SLOT(setPixmap(const QPixmap &)));
     connect(solver, SIGNAL(show_image_right(const QPixmap &)), ui->label_image_right, SLOT(setPixmap(const QPixmap &)));
-    connect(solver, SIGNAL(show_image_map_depth(const QPixmap &)), ui->label_image_map_depth, SLOT(setPixmap(const QPixmap &)));
+    connect(solver, SIGNAL(show_image_depth_map(const QPixmap &)), ui->label_image_depth_map, SLOT(setPixmap(const QPixmap &)));
 
     ui->slider_q->setTracking(false);
     connect(solver, &Solver::set_slider_minimum, this, [=](int value){ui->slider_q->setMinimum(value);});
@@ -76,7 +76,7 @@ void MainWindow::set_new_autostereogram(Mat* image) {
     Mat black_image = Mat::zeros(resized_image.size(), CV_8U);
     ui->label_image_left->setPixmap(QPixmap::fromImage(matGray2QImage(black_image)));
     ui->label_image_right->setPixmap(QPixmap::fromImage(matGray2QImage(black_image)));
-    ui->label_image_map_depth->setPixmap(QPixmap::fromImage(matGray2QImage(black_image)));
+    ui->label_image_depth_map->setPixmap(QPixmap::fromImage(matGray2QImage(black_image)));
 }
 
 void MainWindow::on_btn_select_autostereogram_clicked() {
@@ -89,5 +89,5 @@ void MainWindow::on_btn_select_autostereogram_clicked() {
 }
 
 void MainWindow::on_slider_q_valueChanged(int value) {
-    solver->change_disparity_map_grayscale(value);
+    solver->set_depth_map();
 }

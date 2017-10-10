@@ -6,6 +6,10 @@ INPUT(
 ./debug\image.o
 ./debug\mask.o
 ./debug\disparity_map.o
+./debug\max_disparity.o
+./debug\disparity_filtering.o
+./debug\method_4.o
+./debug\depth_map.o
 ./debug\moc_mainwindow.o
 ./debug\moc_solver.o
 ./debug\moc_wbase.o

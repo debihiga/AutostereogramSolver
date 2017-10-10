@@ -34,7 +34,7 @@ public:
     QGridLayout *gridLayout_2;
     QLabel *label_image_autostereogram;
     QLabel *label_4;
-    QLabel *label_image_map_depth;
+    QLabel *label_image_depth_map;
     QLabel *label;
     QPushButton *btn_select_autostereogram;
     QLabel *label_2;
@@ -73,11 +73,11 @@ public:
 
         gridLayout_2->addWidget(label_4, 2, 1, 1, 1);
 
-        label_image_map_depth = new QLabel(centralWidget);
-        label_image_map_depth->setObjectName(QStringLiteral("label_image_map_depth"));
-        label_image_map_depth->setAlignment(Qt::AlignCenter);
+        label_image_depth_map = new QLabel(centralWidget);
+        label_image_depth_map->setObjectName(QStringLiteral("label_image_depth_map"));
+        label_image_depth_map->setAlignment(Qt::AlignCenter);
 
-        gridLayout_2->addWidget(label_image_map_depth, 3, 1, 1, 1);
+        gridLayout_2->addWidget(label_image_depth_map, 3, 1, 1, 1);
 
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
@@ -159,7 +159,7 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Solucionador de autoestereogramas", Q_NULLPTR));
         label_image_autostereogram->setText(QApplication::translate("MainWindow", "Autostereogram", Q_NULLPTR));
         label_4->setText(QApplication::translate("MainWindow", "Mapa de profundidades", Q_NULLPTR));
-        label_image_map_depth->setText(QApplication::translate("MainWindow", "Map Depth", Q_NULLPTR));
+        label_image_depth_map->setText(QApplication::translate("MainWindow", "Depth Map", Q_NULLPTR));
         label->setText(QApplication::translate("MainWindow", "Autoestereograma", Q_NULLPTR));
         btn_select_autostereogram->setText(QApplication::translate("MainWindow", "Seleccionar autoestereograma", Q_NULLPTR));
         label_2->setText(QApplication::translate("MainWindow", "Imagen izquierda", Q_NULLPTR));
