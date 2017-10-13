@@ -55,8 +55,8 @@ Mat Solver::find_mask() {
         int _mean = (int)mean(gray, mask_aux)[0];
         if(_mean<mean_min) {
             mean_min = _mean;
-            max_disparity = tx;
-            gray(Rect(0,0,max_disparity,autostereogram.size().height))=0;    // Don't show back image.
+            disparity_max = tx;
+            gray(Rect(0,0,disparity_max,autostereogram.size().height))=0;    // Don't show back image.
             //shifted.copyTo(*shifted_out);
             gray.copyTo(mask);
         }

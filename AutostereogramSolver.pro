@@ -12,9 +12,12 @@ SOURCES += main.cpp \
     mask.cpp \
     disparity_map.cpp \
     max_disparity.cpp \
-    disparity_filtering.cpp \
     method_4.cpp \
-    depth_map.cpp
+    depth_map.cpp \
+    method_1.cpp \
+    method_2.cpp \
+    method_3.cpp \
+    opencv_disparity_filtering.cpp
 
 INCLUDEPATH += C:\opencv\build-cpp-mingw-32-wextras\install\include
 
@@ -27,8 +30,8 @@ HEADERS += \
     solver.h \
     wbase.h \
     image.h \
-    disparity_filtering.h \
-    ui_mainwindow.h
+    ui_mainwindow.h \
+    opencv_disparity_filtering.h
 
 FORMS += \
     mainwindow.ui

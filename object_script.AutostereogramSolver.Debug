@@ -7,9 +7,12 @@ INPUT(
 ./debug\mask.o
 ./debug\disparity_map.o
 ./debug\max_disparity.o
-./debug\disparity_filtering.o
 ./debug\method_4.o
 ./debug\depth_map.o
+./debug\method_1.o
+./debug\method_2.o
+./debug\method_3.o
+./debug\opencv_disparity_filtering.o
 ./debug\moc_mainwindow.o
 ./debug\moc_solver.o
 ./debug\moc_wbase.o

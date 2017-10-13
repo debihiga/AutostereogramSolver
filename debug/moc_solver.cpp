@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Solver_t {
-    QByteArrayData data[39];
-    char stringdata0[495];
+    QByteArrayData data[41];
+    char stringdata0[523];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -45,31 +45,33 @@ QT_MOC_LITERAL(10, 159, 16), // "set_slider_value"
 QT_MOC_LITERAL(11, 176, 18), // "set_slider_enabled"
 QT_MOC_LITERAL(12, 195, 5), // "solve"
 QT_MOC_LITERAL(13, 201, 8), // "method_1"
-QT_MOC_LITERAL(14, 210, 8), // "method_2"
-QT_MOC_LITERAL(15, 219, 8), // "method_3"
-QT_MOC_LITERAL(16, 228, 8), // "method_4"
-QT_MOC_LITERAL(17, 237, 19), // "get_disparity_map_4"
-QT_MOC_LITERAL(18, 257, 15), // "get_disparity_4"
-QT_MOC_LITERAL(19, 273, 3), // "Mat"
-QT_MOC_LITERAL(20, 277, 10), // "block_left"
-QT_MOC_LITERAL(21, 288, 9), // "row_right"
-QT_MOC_LITERAL(22, 298, 10), // "block_size"
-QT_MOC_LITERAL(23, 309, 14), // "get_blocks_SSD"
-QT_MOC_LITERAL(24, 324, 11), // "block_right"
-QT_MOC_LITERAL(25, 336, 9), // "find_mask"
-QT_MOC_LITERAL(26, 346, 17), // "get_max_disparity"
-QT_MOC_LITERAL(27, 364, 10), // "apply_mask"
-QT_MOC_LITERAL(28, 375, 5), // "image"
-QT_MOC_LITERAL(29, 381, 4), // "mask"
-QT_MOC_LITERAL(30, 386, 17), // "get_disparity_map"
-QT_MOC_LITERAL(31, 404, 10), // "image_left"
-QT_MOC_LITERAL(32, 415, 11), // "image_right"
-QT_MOC_LITERAL(33, 427, 11), // "match_block"
-QT_MOC_LITERAL(34, 439, 11), // "match_image"
-QT_MOC_LITERAL(35, 451, 11), // "n_iteration"
-QT_MOC_LITERAL(36, 463, 8), // "_row_min"
-QT_MOC_LITERAL(37, 472, 8), // "_col_min"
-QT_MOC_LITERAL(38, 481, 13) // "set_depth_map"
+QT_MOC_LITERAL(14, 210, 11), // "find_mask_1"
+QT_MOC_LITERAL(15, 222, 3), // "Mat"
+QT_MOC_LITERAL(16, 226, 15), // "set_depth_map_1"
+QT_MOC_LITERAL(17, 242, 8), // "method_2"
+QT_MOC_LITERAL(18, 251, 8), // "method_3"
+QT_MOC_LITERAL(19, 260, 8), // "method_4"
+QT_MOC_LITERAL(20, 269, 19), // "get_disparity_map_4"
+QT_MOC_LITERAL(21, 289, 15), // "get_disparity_4"
+QT_MOC_LITERAL(22, 305, 10), // "block_left"
+QT_MOC_LITERAL(23, 316, 9), // "row_right"
+QT_MOC_LITERAL(24, 326, 10), // "block_size"
+QT_MOC_LITERAL(25, 337, 14), // "get_blocks_SSD"
+QT_MOC_LITERAL(26, 352, 11), // "block_right"
+QT_MOC_LITERAL(27, 364, 9), // "find_mask"
+QT_MOC_LITERAL(28, 374, 17), // "get_max_disparity"
+QT_MOC_LITERAL(29, 392, 10), // "apply_mask"
+QT_MOC_LITERAL(30, 403, 5), // "image"
+QT_MOC_LITERAL(31, 409, 4), // "mask"
+QT_MOC_LITERAL(32, 414, 17), // "get_disparity_map"
+QT_MOC_LITERAL(33, 432, 10), // "image_left"
+QT_MOC_LITERAL(34, 443, 11), // "image_right"
+QT_MOC_LITERAL(35, 455, 11), // "match_block"
+QT_MOC_LITERAL(36, 467, 11), // "match_image"
+QT_MOC_LITERAL(37, 479, 11), // "n_iteration"
+QT_MOC_LITERAL(38, 491, 8), // "_row_min"
+QT_MOC_LITERAL(39, 500, 8), // "_col_min"
+QT_MOC_LITERAL(40, 509, 13) // "set_depth_map"
 
     },
     "Solver\0show_image_autostereogram\0\0"
@@ -78,9 +80,10 @@ QT_MOC_LITERAL(38, 481, 13) // "set_depth_map"
     "enable_btn_start\0set_slider_minimum\0"
     "set_slider_maximum\0set_slider_value\0"
     "set_slider_enabled\0solve\0method_1\0"
+    "find_mask_1\0Mat\0set_depth_map_1\0"
     "method_2\0method_3\0method_4\0"
     "get_disparity_map_4\0get_disparity_4\0"
-    "Mat\0block_left\0row_right\0block_size\0"
+    "block_left\0row_right\0block_size\0"
     "get_blocks_SSD\0block_right\0find_mask\0"
     "get_max_disparity\0apply_mask\0image\0"
     "mask\0get_disparity_map\0image_left\0"
@@ -96,7 +99,7 @@ static const uint qt_meta_data_Solver[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      26,   14, // methods
+      28,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -104,34 +107,36 @@ static const uint qt_meta_data_Solver[] = {
       10,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,  144,    2, 0x06 /* Public */,
-       3,    1,  147,    2, 0x06 /* Public */,
-       4,    1,  150,    2, 0x06 /* Public */,
-       5,    1,  153,    2, 0x06 /* Public */,
-       6,    1,  156,    2, 0x06 /* Public */,
-       7,    1,  159,    2, 0x06 /* Public */,
-       8,    1,  162,    2, 0x06 /* Public */,
-       9,    1,  165,    2, 0x06 /* Public */,
-      10,    1,  168,    2, 0x06 /* Public */,
-      11,    0,  171,    2, 0x06 /* Public */,
+       1,    1,  154,    2, 0x06 /* Public */,
+       3,    1,  157,    2, 0x06 /* Public */,
+       4,    1,  160,    2, 0x06 /* Public */,
+       5,    1,  163,    2, 0x06 /* Public */,
+       6,    1,  166,    2, 0x06 /* Public */,
+       7,    1,  169,    2, 0x06 /* Public */,
+       8,    1,  172,    2, 0x06 /* Public */,
+       9,    1,  175,    2, 0x06 /* Public */,
+      10,    1,  178,    2, 0x06 /* Public */,
+      11,    0,  181,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      12,    0,  172,    2, 0x0a /* Public */,
-      13,    0,  173,    2, 0x0a /* Public */,
-      14,    0,  174,    2, 0x0a /* Public */,
-      15,    0,  175,    2, 0x0a /* Public */,
-      16,    0,  176,    2, 0x0a /* Public */,
-      17,    0,  177,    2, 0x0a /* Public */,
-      18,    3,  178,    2, 0x0a /* Public */,
-      23,    2,  185,    2, 0x0a /* Public */,
-      25,    0,  190,    2, 0x0a /* Public */,
-      26,    0,  191,    2, 0x0a /* Public */,
-      27,    2,  192,    2, 0x0a /* Public */,
-      30,    2,  197,    2, 0x0a /* Public */,
-      30,    0,  202,    2, 0x0a /* Public */,
-      33,    3,  203,    2, 0x0a /* Public */,
-      34,    4,  210,    2, 0x0a /* Public */,
-      38,    0,  219,    2, 0x0a /* Public */,
+      12,    0,  182,    2, 0x0a /* Public */,
+      13,    0,  183,    2, 0x0a /* Public */,
+      14,    0,  184,    2, 0x0a /* Public */,
+      16,    0,  185,    2, 0x0a /* Public */,
+      17,    0,  186,    2, 0x0a /* Public */,
+      18,    0,  187,    2, 0x0a /* Public */,
+      19,    0,  188,    2, 0x0a /* Public */,
+      20,    0,  189,    2, 0x0a /* Public */,
+      21,    3,  190,    2, 0x0a /* Public */,
+      25,    2,  197,    2, 0x0a /* Public */,
+      27,    0,  202,    2, 0x0a /* Public */,
+      28,    0,  203,    2, 0x0a /* Public */,
+      29,    2,  204,    2, 0x0a /* Public */,
+      32,    2,  209,    2, 0x0a /* Public */,
+      32,    0,  214,    2, 0x0a /* Public */,
+      35,    3,  215,    2, 0x0a /* Public */,
+      36,    4,  222,    2, 0x0a /* Public */,
+      40,    0,  231,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QPixmap,    2,
@@ -148,19 +153,21 @@ static const uint qt_meta_data_Solver[] = {
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
+    0x80000000 | 15,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::UInt, 0x80000000 | 19, 0x80000000 | 19, QMetaType::Int,   20,   21,   22,
-    QMetaType::UInt, 0x80000000 | 19, 0x80000000 | 19,   20,   24,
-    0x80000000 | 19,
+    QMetaType::Void,
+    QMetaType::UInt, 0x80000000 | 15, 0x80000000 | 15, QMetaType::Int,   22,   23,   24,
+    QMetaType::UInt, 0x80000000 | 15, 0x80000000 | 15,   22,   26,
+    0x80000000 | 15,
     QMetaType::Int,
-    0x80000000 | 19, 0x80000000 | 19, 0x80000000 | 19,   28,   29,
-    QMetaType::Void, 0x80000000 | 19, 0x80000000 | 19,   31,   32,
+    0x80000000 | 15, 0x80000000 | 15, 0x80000000 | 15,   30,   31,
+    QMetaType::Void, 0x80000000 | 15, 0x80000000 | 15,   33,   34,
     QMetaType::Void,
-    QMetaType::Int, 0x80000000 | 19, 0x80000000 | 19, QMetaType::Int,   20,   21,   22,
-    QMetaType::Bool, QMetaType::Int, QMetaType::Int, QMetaType::Int, QMetaType::Int,   22,   35,   36,   37,
+    QMetaType::Int, 0x80000000 | 15, 0x80000000 | 15, QMetaType::Int,   22,   23,   24,
+    QMetaType::Bool, QMetaType::Int, QMetaType::Int, QMetaType::Int, QMetaType::Int,   24,   37,   38,   39,
     QMetaType::Void,
 
        0        // eod
@@ -184,27 +191,30 @@ void Solver::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 9: _t->set_slider_enabled(); break;
         case 10: _t->solve(); break;
         case 11: _t->method_1(); break;
-        case 12: _t->method_2(); break;
-        case 13: _t->method_3(); break;
-        case 14: _t->method_4(); break;
-        case 15: _t->get_disparity_map_4(); break;
-        case 16: { uint _r = _t->get_disparity_4((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])));
-            if (_a[0]) *reinterpret_cast< uint*>(_a[0]) = std::move(_r); }  break;
-        case 17: { uint _r = _t->get_blocks_SSD((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])));
-            if (_a[0]) *reinterpret_cast< uint*>(_a[0]) = std::move(_r); }  break;
-        case 18: { Mat _r = _t->find_mask();
+        case 12: { Mat _r = _t->find_mask_1();
             if (_a[0]) *reinterpret_cast< Mat*>(_a[0]) = std::move(_r); }  break;
-        case 19: { int _r = _t->get_max_disparity();
-            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
-        case 20: { Mat _r = _t->apply_mask((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])));
+        case 13: _t->set_depth_map_1(); break;
+        case 14: _t->method_2(); break;
+        case 15: _t->method_3(); break;
+        case 16: _t->method_4(); break;
+        case 17: _t->get_disparity_map_4(); break;
+        case 18: { uint _r = _t->get_disparity_4((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])));
+            if (_a[0]) *reinterpret_cast< uint*>(_a[0]) = std::move(_r); }  break;
+        case 19: { uint _r = _t->get_blocks_SSD((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])));
+            if (_a[0]) *reinterpret_cast< uint*>(_a[0]) = std::move(_r); }  break;
+        case 20: { Mat _r = _t->find_mask();
             if (_a[0]) *reinterpret_cast< Mat*>(_a[0]) = std::move(_r); }  break;
-        case 21: _t->get_disparity_map((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2]))); break;
-        case 22: _t->get_disparity_map(); break;
-        case 23: { int _r = _t->match_block((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])));
+        case 21: { int _r = _t->get_max_disparity();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
-        case 24: { bool _r = _t->match_image((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])),(*reinterpret_cast< int(*)>(_a[4])));
+        case 22: { Mat _r = _t->apply_mask((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])));
+            if (_a[0]) *reinterpret_cast< Mat*>(_a[0]) = std::move(_r); }  break;
+        case 23: _t->get_disparity_map((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2]))); break;
+        case 24: _t->get_disparity_map(); break;
+        case 25: { int _r = _t->match_block((*reinterpret_cast< Mat(*)>(_a[1])),(*reinterpret_cast< Mat(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])));
+            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
+        case 26: { bool _r = _t->match_image((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])),(*reinterpret_cast< int(*)>(_a[4])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 25: _t->set_depth_map(); break;
+        case 27: _t->set_depth_map(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -308,13 +318,13 @@ int Solver::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 26)
+        if (_id < 28)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 26;
+        _id -= 28;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 26)
+        if (_id < 28)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 26;
+        _id -= 28;
     }
     return _id;
 }

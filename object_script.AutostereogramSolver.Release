@@ -7,9 +7,12 @@ INPUT(
 ./release\mask.o
 ./release\disparity_map.o
 ./release\max_disparity.o
-./release\disparity_filtering.o
 ./release\method_4.o
 ./release\depth_map.o
+./release\method_1.o
+./release\method_2.o
+./release\method_3.o
+./release\opencv_disparity_filtering.o
 ./release\moc_mainwindow.o
 ./release\moc_solver.o
 ./release\moc_wbase.o

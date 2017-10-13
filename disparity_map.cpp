@@ -1,6 +1,6 @@
 #include "solver.h"
 #include "image.h"
-#include "disparity_filtering.h"
+#include "opencv_disparity_filtering.h"
 
 #define BLOCK_SIZE  4
 

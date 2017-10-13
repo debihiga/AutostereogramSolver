@@ -38,8 +38,10 @@ public slots:
      * porque es un worker.
      */
 
-    // Method 1. OpenCV StereogramMatcher.
+    // Method 1. OpenCV StereoBM.
     void method_1();
+    Mat find_mask_1();
+    void set_depth_map_1();
 
     // Method 2. Mean.
     void method_2();
