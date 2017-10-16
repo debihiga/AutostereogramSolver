@@ -45,15 +45,19 @@ public slots:
 
     // Method 2. Mean.
     void method_2();
+    int get_max_disparity_2();
+    void get_disparity_map_2();
+    unsigned int get_disparity_2(Mat block_left, Mat row_right, int block_size);
+    unsigned int get_blocks_SSD(Mat block_left, Mat block_right);
+    void filter(Mat image, Mat disparity_map,
+                int wsize, double lambda, double sigma,
+                Mat *disparity_map_filtered);
 
     // Method 3. Mean with autostereogram itself.
     void method_3();
 
     // Method 4. SSD.
     void method_4();
-    void get_disparity_map_4();
-    unsigned int get_disparity_4(Mat block_left, Mat row_right, int block_size);
-    unsigned int get_blocks_SSD(Mat block_left, Mat block_right);
 
 
     Mat find_mask();

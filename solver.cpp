@@ -16,8 +16,8 @@ void Solver::solve() {
         finish();
     }
 
-    method_1();
-    //method_2();
+    //method_1();
+    method_2();
     //method_3();
     //method_4();
 

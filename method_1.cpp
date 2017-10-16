@@ -38,6 +38,12 @@ void Solver::method_1() {
                                                 8000.0, 1.5);
         */
         ///*
+        ///*
+        transformation_matrix = (Mat_<double>(2, 3) << 1, 0, disparity_max/2, 0, 1, 0);
+        warpAffine(image_right, image_right, transformation_matrix, autostereogram.size());
+        transformation_matrix = (Mat_<double>(2, 3) << 1, 0,  -((int)disparity_max/2), 0, 1, 0);
+        warpAffine(image_left, image_left, transformation_matrix, autostereogram.size());
+        ///*/
         // Get disparity map.
         disparity_map = opencv_disparity_filter(image_right,image_left,
                                                 "bm", "wls_no_conf",
@@ -50,7 +56,7 @@ void Solver::method_1() {
         cv::minMaxLoc(disparity_map, &min, &max);
         qDebug() << "min"<<min;
         qDebug() <<"max"<<max;
-        //set_depth_map_1();
+        set_depth_map();
         emit show_image_depth_map(QPixmap::fromImage(matGray2QImage(resize_image(&disparity_map))));
     }
 
@@ -165,9 +171,10 @@ void Solver::set_depth_map_1() {
     Mat depth_map = Mat::zeros(disparity_map.size().height, disparity_map.size().width, CV_8U);
     for(int row=0; row<depth_map.rows; row++) {
         for(int col=0; col<depth_map.cols; col++) {
-            int disparity = disparity_map.at<int>(row, col);
+            unsigned char disparity = disparity_map.at<unsigned char>(row, col);
             if(disparity!=0) {
-                unsigned char depth = (200)/((double)disparity);
+                unsigned char depth = (5000)/((double)disparity);
+                //qDebug() << depth ;
                 depth_map(Rect(col, row, 1, 1)) = depth;
             }
         }
